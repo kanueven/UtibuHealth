@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">UtibuHealth</string>
+    <string name="log_in">Login\n</string>
+    <string name="username">Username</string>
+    <string name="password">Password\n</string>
+    <string name="remember">Remember me</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="or">Or sign up with\n</string>
+    <string name="no_acc">Don\'t have an Account?</string>
+    <string name="sign_up">Signup</string>
+    <string name="pass_not_match">Password Is not Matching\n</string>
+    <string name="first_name">FirstName\n</string>
+    <string name="last_name">LastName\n</string>
+    <string name="email">Email\n</string>
+    <string name="confirm_pass">ConfirmPassword\n</string>
+    <string name="add_cart">Add To Cart\n</string>
 </resources>
