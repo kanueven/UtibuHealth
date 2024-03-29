@@ -10,7 +10,7 @@ import com.rae.utibuhealth.data.model.Medication
 import kotlinx.coroutines.launch
 
 class MedicationDetViewModel(
-    private val medicineDao: MedicineDao = AppDatabase.getDatabase().medicineDao()
+    private val medicineDao: MedicationDao = AppDatabase.getDatabase().medicineDao()
 ) : ViewModel() {
 
     fun insertMedications(medications: List<Medication>) {
