@@ -1,3 +1,6 @@
+package com.rae.utibuhealth.presentation.screens
+
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,7 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.rae.utibuhealth.R
-import com.rae.utibuhealth.data.model.Medication
+import com.rae.utibuhealth.domain.model.Medication
 import com.rae.utibuhealth.ui.theme.Primary
 
 @Composable

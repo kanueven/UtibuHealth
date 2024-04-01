@@ -2,8 +2,6 @@ package com.rae.utibuhealth.di
 
 import com.google.gson.GsonBuilder
 import com.rae.utibuhealth.api.ApiService
-import com.rae.utibuhealth.data.model.MedicationListResponse
-import com.rae.utibuhealth.data.model.Medication
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

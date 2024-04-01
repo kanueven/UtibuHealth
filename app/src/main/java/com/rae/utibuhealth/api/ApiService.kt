@@ -14,6 +14,8 @@ interface ApiService {
     @GET("/api/medicine")
     suspend fun getAllMedicines(): MedicationListResponse
 
+    //To add a viewed medication ID to the user's profile. This endpoint should require user authentication.
+
     @POST("/api/login")
     suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
 

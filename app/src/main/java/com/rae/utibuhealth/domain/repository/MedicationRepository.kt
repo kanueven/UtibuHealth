@@ -1,6 +1,6 @@
-package com.rae.utibuhealth.repository
+package com.rae.utibuhealth.domain.repository
 
-import com.rae.utibuhealth.data.model.Medication
+import com.rae.utibuhealth.domain.model.Medication
 import com.rae.utibuhealth.util.Resource
 
 interface MedicationRepository {

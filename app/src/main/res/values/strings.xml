@@ -14,4 +14,10 @@
     <string name="email">Email\n</string>
     <string name="confirm_pass">ConfirmPassword\n</string>
     <string name="add_cart">Add To Cart\n</string>
+    <string name="quantity">Quantity\n</string>
+    <string name="in_stock">InStock\n</string>
+    <string name="out_of_stock">Out of Stock\n</string>
+    <string name="my_cart">MyCart\n</string>
+    <string name="cart_empty">EmptyCart\n</string>
+    <string name="buy_now">Order Now</string>
 </resources>

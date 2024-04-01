@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.rae.utibuhealth.data.model.LoginRequest
 import com.rae.utibuhealth.data.model.RegisterRequest
-import com.rae.utibuhealth.repository.MainRepository
+import com.rae.utibuhealth.domain.repository.MainRepository
 
 class LoginSignupViewModel(private val repository: MainRepository):ViewModel() {
   //login data
