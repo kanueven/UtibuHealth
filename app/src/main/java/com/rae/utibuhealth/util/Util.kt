@@ -1,7 +1,7 @@
 package com.rae.utibuhealth.util
 
-sealed class Resource<T> ( val data: T? = null, val message: String? =null){
-    class Success<T>(data: T?):Resource<T>(data)
-    class Error<T>(message: String, data: T? = null):Resource<T>(data, message)
-    class Loading<T>(val isLoading: Boolean = true):Resource<T>(null)
+sealed class NetworkResult<out T> {
+    data class Success<out T>(val data: T) : NetworkResult<T>()
+    data class Error(val exception: Exception) : NetworkResult<Nothing>()
+    object Loading : NetworkResult<Nothing>()
 }

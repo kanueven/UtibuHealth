@@ -1,6 +1,5 @@
-package com.rae.utibuhealth.presentation.screens
+package com.rae.utibuhealth.presentation.screens.authentification
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

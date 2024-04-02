@@ -8,8 +8,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkModule {
+    //ApiService instance using Retrofit.
 
-    private const val BASE_URL = "https://your-api.com/"  // Replace with your actual base URL
+    private const val BASE_URL = "https://kehela.ujuzi.co.de/api/"
 
     private val gson = GsonBuilder().create()
 

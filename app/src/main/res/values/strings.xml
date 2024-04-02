@@ -20,4 +20,11 @@
     <string name="my_cart">MyCart\n</string>
     <string name="cart_empty">EmptyCart\n</string>
     <string name="buy_now">Order Now</string>
+    <string name="bottom_navigation_cart">My Cart</string>
+    <string name="bottom_navigation_home">Home</string>
+    <string name="bottom_navigation_order">Order </string>
+    <string name="bottom_navigation_account">Account</string>
+    <string name="search_medications">Search Medications\n</string>
+    <string name="loading">Loading</string>
+    <string name="error_message">Error\n</string>
 </resources>

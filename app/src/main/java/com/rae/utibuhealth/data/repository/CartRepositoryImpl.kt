@@ -1,33 +1,65 @@
 package com.rae.utibuhealth.data.repository
 
+import com.google.gson.Gson
+import com.rae.utibuhealth.api.ApiService
 import com.rae.utibuhealth.data.database.dao.CartDao
-import com.rae.utibuhealth.domain.model.Medication
+import com.rae.utibuhealth.data.model.Cart
+import com.rae.utibuhealth.data.model.CartItem
+import com.rae.utibuhealth.data.model.CartItemEntity
+import com.rae.utibuhealth.domain.model.Medicine
 import com.rae.utibuhealth.domain.repository.CartRepository
-import com.rae.utibuhealth.presentation.viewmodel.CartItem
 
-class CartRepositoryImpl(
+import javax.inject.Inject
+
+class CartRepositoryImpl @Inject constructor(
     private val cartDao: CartDao,
-    //private val cartService: CartService // Inject CartService implementation
-): CartRepository {
-    override suspend fun addToCart(userId: String, medicine: Medication, quantity: Int): Boolean {
-        val success = cartDao.addToCart(CartItemEntity(0, medicine.medicineId, quantity))
-        // Add logic to handle asynchronous database insertion result (success)
+    private val cartService: ApiService // Inject CartService implementation
+) : CartRepository {
 
-        // If successful locally, attempt server update
-        if (success) {
-            val serverSuccess = cartService.addToCart(userId, medicine.medicineId, quantity)
-            // Handle server update success or failure (e.g., retry logic)
+    override suspend fun addToCart(medicine: Medicine, quantity: Int) {
+        val currentCart = getCartItems() ?: Cart(0, emptyList(), 0.0)
+        val updatedItems = updateCartItems(currentCart.items, medicine, quantity)
+        val newTotalPrice = currentCart.totalPrice + (medicine.price * quantity)
+        val updatedCart = Cart(currentCart.id, updatedItems, newTotalPrice)
+        insertCart(updatedCart)
+    }
+
+    override suspend fun getCartItems(): Cart? {
+        val cartEntity = cartDao.getCart()
+        return cartEntity?.cartEntityToCart()
+            ?: Cart(0, emptyList(), 0.0) // Convert CartEntity to Cart object
+    }
+
+    override suspend fun clearCart() {
+        cartDao.clearCart()
+    }
+
+    override suspend fun updateCartItems(
+        currentItems: List<CartItem>,
+        medicine: Medicine,
+        quantity: Int
+    ): List<CartItem> {
+        val existingItem = currentItems.find { it.medicine.id == medicine.id }
+        return if (existingItem != null) {
+            val updatedQuantity = existingItem.quantity + quantity
+            currentItems.map { if (it.medicine.id == medicine.id) CartItem(medicine, updatedQuantity) else it }
+        } else {
+            currentItems.plus(CartItem(medicine, quantity))
         }
-        return success // Return local addition success (can be refined based on server response)
-
     }
 
-    override suspend fun getCartItems(userId: String): List<CartItem> {
-        TODO("Not yet implemented")
+    override suspend fun insertCart(cart: Cart) {
+        cartDao.insertCart(
+            CartItemEntity(
+                cart.id,
+                Gson().toJson(cart.items),
+                cart.totalPrice
+            )
+        )
     }
 
-    override suspend fun clearCart(userId: String) {
-        TODO("Not yet implemented")
+    private fun CartItemEntity.cartEntityToCart(): Cart {
+        val cartItems = Gson().fromJson(itemsJson, Array<CartItem>::class.java).toList()
+        return Cart(id, cartItems, totalPrice)
     }
-
 }

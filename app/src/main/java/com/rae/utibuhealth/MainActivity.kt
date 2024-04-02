@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.rae.utibuhealth.domain.model.Medication
 import com.rae.utibuhealth.presentation.screens.DetailsScreen
 import com.rae.utibuhealth.ui.theme.UtibuHealthTheme
@@ -23,32 +24,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   DetailsScreen(medicine =
-                   Medication(
-                       medicineName = "Hiv pills",
-                       price = 2.00,
-                       image = "R.drawable.hivpill",
-                       description = "This is a drug that helps with headches,njhhsdihfihfafagaf",
-                       isInStock = true
-                   )
-                   )
+                    val navController = rememberNavController()
+
+                    NavHost(navController, startDestination = "homeScreen") {
+                        composable("homeScreen") { HomeScreen(navController) }
+                        composable("medicineDetailScreen") { MedicineDetailScreen(navController) }
 
                 }
             }
         }
     }
 }
-@Preview
-@Composable
-fun DetPreview(){
-    DetailsScreen(medicine =
-    Medication(
-        medicineName = "Hiv pills",
-        price = 2.00,
-        image = "R.drawable.hivpill",
-        description = "This is a drug that helps with headches,njhhsdihfihfafagaf",
-        isInStock = true
-    )
-    )
 }
-

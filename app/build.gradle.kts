@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id ("kotlin-kapt")
+
 }
 
 android {
@@ -69,12 +70,15 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     // Room
-    implementation ("androidx.room:room-runtime:2.2.6")
-    kapt ("androidx.room:room-compiler:2.2.6")
+    implementation ("androidx.room:room-runtime:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
 
     // Coroutines
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha01")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+
 
     //json and json converter
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -84,12 +88,20 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp")
     implementation("com.squareup.okhttp3:logging-interceptor")
     //gson
-    implementation ("com.google.code.gson:gson:2.8.8")
+    implementation ("com.google.code.gson:gson:2.10")
+
+    //Hilt-Dagger
+    implementation ("com.google.dagger:hilt-android:2.44")
+    kapt ("com.google.dagger:hilt-compiler:2.44")
+
+    //coil
+    implementation("io.coil-kt:coil-compose:1.4.0")
+
 
 
 
 
 
     //navigation
-    implementation("androidx.navigation:navigation-compose:2.7.6")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 }

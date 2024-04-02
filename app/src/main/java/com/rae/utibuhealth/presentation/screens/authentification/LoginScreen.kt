@@ -1,4 +1,4 @@
-package com.rae.utibuhealth.presentation.screens
+package com.rae.utibuhealth.presentation.screens.authentification
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -34,7 +34,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rae.utibuhealth.R
 import com.rae.utibuhealth.presentation.components.ButtonComponent
