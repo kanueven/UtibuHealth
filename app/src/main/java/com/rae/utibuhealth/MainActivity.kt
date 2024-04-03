@@ -9,9 +9,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.rae.utibuhealth.domain.model.Medication
-import com.rae.utibuhealth.presentation.screens.DetailsScreen
+import com.rae.utibuhealth.presentation.screens.HomeScreen
+import com.rae.utibuhealth.presentation.screens.medicine.MedicineScreen
+
 import com.rae.utibuhealth.ui.theme.UtibuHealthTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,7 +31,7 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(navController, startDestination = "homeScreen") {
                         composable("homeScreen") { HomeScreen(navController) }
-                        composable("medicineDetailScreen") { MedicineDetailScreen(navController) }
+                        composable("medicineDetailScreen") { MedicineScreen(navController) }
 
                 }
             }
